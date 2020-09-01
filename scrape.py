@@ -10,8 +10,7 @@ from bs4 import BeautifulSoup
 import boto3
 
 logger = logging.getLogger()
-# logger.setLevel(getattr(logging, os.environ['logLevel'], 40))
-logger.setLevel(logging.DEBUG)
+logger.setLevel(getattr(logging, os.environ["logLevel"], 40))
 
 
 def notify(email, api_key, message):
