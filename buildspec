@@ -6,7 +6,7 @@ phases:
       python: 3.8
   pre_build:
     commands:
-      - apt-get install -y python3-pip
+      - yum install -y python3-pip
       - pip install --upgrade pip
       - pip install pipenv
       - pipenv install
