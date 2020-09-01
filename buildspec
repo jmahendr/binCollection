@@ -1,0 +1,44 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+  pre_build:
+    commands:
+      - apt-get install -y python3-pip
+      - pip install --upgrade pip
+      - pip install pipenv
+      - pipenv install
+      - pipenv shell
+      - mkdir test-reports
+  build:
+    commands:
+      - pytest 
+        --html=test-reports/report.html 
+        --self-contained-html
+        -s
+        -v
+        --cov=dspt 
+        --cov-report=html:test-reports/coverage 
+        --junitxml=test-reports/junit.xml 
+        --log-file=test-reports/logs.txt 
+        tests
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+reports:
+  coverage:
+    files:
+      - "coverage/*"
+    base-directory: 'test-reports'
+    discard-paths: yes
+  report:
+    files:
+      - 'junit.xml'
+      - 'report.html'
+      - 'assets/*'
+    base-directory: 'test-reports'
+    discard-paths: yes
+    file-format: JunitXml
