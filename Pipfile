@@ -9,6 +9,7 @@ autopep8 = "*"
 ipykernel = "*"
 black = "*"
 flake8 = "*"
+pytest = "*"
 
 [packages]
 beautifulsoup4 = "*"
