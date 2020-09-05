@@ -33,7 +33,7 @@ def notify(email, api_key, message):
 
 def lambda_handler(event, context):
 
-    api_key = os.environ["apiKey"]
+api_key = os.environ["apiKey"]
     email = os.environ["email"]
     council_web_page = (
         "https://digital.wyndham.vic.gov.au"
