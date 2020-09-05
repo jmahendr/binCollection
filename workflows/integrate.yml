@@ -1,6 +1,10 @@
 name: flake8
 
-on: [push]
+on: 
+  push
+    branches:
+      - develop
+
 
 jobs:
   build:
@@ -20,5 +24,3 @@ jobs:
     - name: Test with flake8
       run: |
         flake8 `ls -R|grep .py$|xargs`
-
-        
